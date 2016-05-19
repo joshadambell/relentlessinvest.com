@@ -68,21 +68,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <template is="dom-bind" id="app">
     <paper-header-panel main fixed id="headerPanelMain" class="flex">
-      <paper-toolbar id="mainToolbar" class="medium-tall">
+      <paper-toolbar id="mainToolbar" class="tall">
 
+      			<div class="top"></div>
             <!-- Application name -->
-            <div class="top middle-container">
+            <div class="middle middle-container">
               <div class="app-name">Relentless Investments Corp</div>
             </div>
 
-             <span class="space"></span>
+             <!-- <span class="space"></span> -->
 
              <!-- Toolbar icons -->
             <!-- <paper-icon-button icon="search"></paper-icon-button> -->
 
             <!-- Application sub title -->
-            <div class="bottom bottom-container">
-              <paper-tabs selected="0">
+              <paper-tabs class="bottom self-end flex" selected="0" noink style="width: 1000px">
                 <paper-tab>
                   <a data-route="home" href="{{baseUrl}}">
                     <iron-icon icon="home"></iron-icon>
@@ -108,10 +108,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 				          </a>
                 </paper-tab>
               </paper-tabs>
-            </div>
           </paper-toolbar>
       <div class="content layout horizontal">
-      	<div style="width: 65%;">
+      	<div style="width: 70%;">
       		<iron-pages attr-for-selected="data-route" selected="{{route}}">
             <section data-route="home" tabindex="-1">
               	<h1 class="page-title" tabindex="-1">Home</h1>

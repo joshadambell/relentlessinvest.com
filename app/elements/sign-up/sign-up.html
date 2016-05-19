@@ -8,11 +8,19 @@
     <style include="shared-styles">
       :host {
         display: block;
-        width: 35%; 
+        width: 30%; 
         position: fixed;
+        -webkit-transform-origin: left center;
+        transform-origin: left center;
+        background: rgb(95, 153, 219);
+        z-index: 1000;
       }
       paper-material {
         padding: 30px;
+        height: 500px;
+      }
+      paper-button {
+        margin: 30px 0 0 0;
       }
 
       span,
@@ -47,19 +55,20 @@
             type: String,
             notify: false
           }
-        }
-        function submitForm() {
+        },
+        ready: function() {
+           this.$.form.addEventListener('iron-form-presubmit', function() {
+            this.request.method = 'post';
+            this.request.form = JSON.Stringify({name: this.name, email: this.email});
+          });
+          this.$.form.addEventListener('iron-form-submit', function() {
+            this.name = ""
+            this.email = ""
+          });
+        },
+        submitForm: function() {
           document.getElementById('form').submit();
         }
-        form.addEventListener('iron-form-presubmit', function() {
-          this.request.method = 'post';
-          this.request. = JSON.Stringify({name: this.name, email: this.email});
-        });
-
-        form.addEventListener('iron-form-submit', function() {
-          this.name = ""
-          this.email = ""
-        });
       });
     })();
   </script>
