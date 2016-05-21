@@ -43,8 +43,8 @@
 		<span id="browser-sync-binding"></span>
 		<!-- endbuild -->
 		<template is="dom-bind" id="app">
-			<paper-drawer-panel force-narrow>
-				<paper-header-panel id="drawer" drawer>
+			<paper-drawer-panel force-narrow id="mainDrawerPanel">
+				<paper-header-panel drawer>
 						<a data-route="home" href="{{baseUrl}}" style=" display: flex; justify-content: center; padding: 15px;">
 								<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
 						</a>
@@ -73,7 +73,7 @@
 				</paper-header-panel>
 
 				<paper-header-scroll-panel main fixed id="headerPanelMain" class="flex">
-					<paper-toolbar id="mainToolbar">
+					<paper-toolbar id="mainToolbar" fixed>
 						<paper-icon-button icon="menu" paper-drawer-toggle raised hidden$="{{wideLayout}}"></paper-icon-button>
 						<div class="top layout horizontal flex" hidden$="{{!wideLayout}}">
 							<a data-route="home" href="{{baseUrl}}">
@@ -105,7 +105,6 @@
 				</section>
 				<section data-route="about" tabindex="-1">
 					<h1 class="page-title" tabindex="-1">About</h1>
-					<p>This is the contact section</p>
 				</section>
 				<section data-route="opportunities" tabindex="-1">
 					<h1 class="page-title" tabindex="-1">Investment Opportunities</h1>
