@@ -38,47 +38,65 @@
 		<style is="custom-style" include="shared-styles"></style>
 		<style is="custom-style" include="iron-flex"></style>
 	</head>
-	<body unresolved>
+	<body class="fullbleed layout vertical" unresolved>
 		<!-- build:remove -->
 		<span id="browser-sync-binding"></span>
 		<!-- endbuild -->
 		<template is="dom-bind" id="app">
-		<paper-header-panel main fixed id="headerPanelMain" class="flex">
-			
-			<paper-toolbar id="mainToolbar" hidden$="{{!wideLayout}}">
-				<div class="top layout horizontal flex">
-					<a data-route="home" href="{{baseUrl}}">
-						<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
-					</a>
-					
-
-					<!-- On Desktop -->
-					<paper-tabs id="paper-tabs" class="self-end flex" selected="{{selectedTab}}">
-						<paper-tab>
+			<paper-drawer-panel force-narrow>
+				<paper-header-panel id="drawer" drawer>
+						<a data-route="home" href="{{baseUrl}}" style=" display: flex; justify-content: center; padding: 15px;">
+								<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
+						</a>
+					<paper-menu>
 							<a data-route="about" href="{{baseUrl}}about">
-								<span>About</span>
-							</a>
-						</paper-tab>
-						<paper-tab>
-							<a data-route="opportunities" href="{{baseUrl}}opportunities">
-								<span>Investment Opportunities</span>
-							</a>
-						</paper-tab>
-						<paper-tab>
-							<a data-route="history" href="{{baseUrl}}history">
-								<span>Past Projects</span>
-							</a>
-						</paper-tab>
-						<paper-tab>
-							<a data-route="signup" href="{{baseUrl}}signup">
-								<span>Sign Up</span>
-							</a>
-						</paper-tab>
-					</paper-tabs>
+								<paper-item>
+										About
+									</paper-item>
+									</a>
+									<a data-route="opportunities" href="{{baseUrl}}opportunities">
+						<paper-item>
+										Investment Opportunities
+									</paper-item>
+									</a>
+									<a data-route="history" href="{{baseUrl}}history">
+						<paper-item>
+										Past Projects
+									</paper-item>
+									</a>
+									<a data-route="signup" href="{{baseUrl}}signup">
+									<paper-item>
+										Sign Up
+									</paper-item>
+									</a>
+					</paper-menu>
+				</paper-header-panel>
 
-
-				</div>
-			</paper-toolbar>
+				<paper-header-scroll-panel main fixed id="headerPanelMain" class="flex">
+					<paper-toolbar id="mainToolbar">
+						<paper-icon-button icon="menu" paper-drawer-toggle raised hidden$="{{wideLayout}}"></paper-icon-button>
+						<div class="top layout horizontal flex" hidden$="{{!wideLayout}}">
+							<a data-route="home" href="{{baseUrl}}">
+								<iron-image sizing="contain" src="../images/logo.png" style="height:50px; width:150px"></iron-image>
+							</a>
+							
+							<!-- On Desktop -->
+							<paper-tabs id="paper-tabs" class="self-end flex" selected="{{selectedTab}}" no-bar>
+								<paper-tab link>
+									<a data-route="about" href="{{baseUrl}}about" class="link" tabindex="-1">About</a>
+								</paper-tab>
+								<paper-tab link>
+									<a data-route="opportunities" href="{{baseUrl}}opportunities" class="link" tabindex="-1">Investment Opportunities</a>
+								</paper-tab>
+								<paper-tab link>
+									<a data-route="history" href="{{baseUrl}}history" class="link" tabindex="-1">Past Projects</a>
+								</paper-tab>
+								<paper-tab link>
+									<a data-route="signup" href="{{baseUrl}}signup" class="link" tabindex="-1">Sign Up</a>
+								</paper-tab>
+							</paper-tabs>
+						</div>
+					</paper-toolbar>
 			
 			<div class="content layout horizontal">
 				<iron-pages attr-for-selected="data-route" selected="{{route}}">
@@ -96,15 +114,15 @@
 					<h1 class="page-title" tabindex="-1">Past Projects</h1>
 				</section>
 				<section data-route="signup" tabindex="-1">
-					<h1 class="page-title" tabindex="-1">Sign Up</h1>
+					<h1 class="page-title" tabindex="-1"></h1>
 					<sign-up></sign-up>
 				</section>
 				</iron-pages>
 			</div>
-		</paper-header-panel>
-		<!-- Main Area -->
-		<!-- <paper-scroll-header-panel main id="headerPanelMain" condenses keep-condensed-header> -->
-		<!-- Main Toolbar -->
+		</paper-header-scroll-panel>
+		</paper-drawer-panel>
+		<iron-media-query query="min-width: 600px" query-matches="{{wideLayout}}"></iron-media-query>
+
 		</template>
 		<!-- build:js scripts/app.js -->
 		<script src="scripts/app.js"></script>

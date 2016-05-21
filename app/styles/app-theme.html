@@ -42,30 +42,42 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     /* Components 
 
     /* paper-drawer-panel */
-/*    --drawer-menu-color: #ffffff;
+    --drawer-menu-color: #ffffff;
     --drawer-border-color: 1px solid #ccc;
-    --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);*/
+    --drawer-toolbar-border-color: 1px solid rgba(0, 0, 0, 0.22);
 
     /* paper-menu */
-    /*--paper-menu-background-color: #fff;
-    --menu-link-color: #111111;*/*/
+    --paper-menu-background-color: #fff;
+    --menu-link-color: #111111;
 
     /* paper-toolbar */
 
     /* paper-tab */
 
-    --paper-tabs-selection-bar-color: orange;
+    --paper-tabs-selection-bar-color: rgb(238, 180, 59);
     --paper-tab: {
       color: white;
     };
+    --paper-tab-ink: rgb(84, 192, 225);
 
   }
 
   /* General styles */
 
+  /*rgb(104,107,104) gray*/
+  /*rgb(0, 89, 114); Dark blue*/
+  /*rgb(84, 192, 225); light blue*/
+  paper-icon-button {
+   color: rgb(238, 180, 59); /* orange */
+  }
+
   body {
     @apply(--layout-fullbleed);
     @apply(--layout-vertical);
+  }
+
+  [hidden] {
+    display: none !important;
   }
 
   .space {
@@ -83,7 +95,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   }
 
   paper-toolbar {
-   
+   box-shadow: 0px 5px 6px -3px rgba(0, 0, 0, 0.4);
   }
 
   #mainToolbar.tall .app-name {
@@ -104,13 +116,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     height: 900px;
   }
 
-  /*section[data-route="home"] paper-material {
+  section[data-route="home"] paper-material {
     @apply(--paper-font-body2);
   }
 
   section[data-route="home"] paper-material .subhead {
     @apply(--paper-font-subhead);
-  }*/
+  }
 
   paper-material {
     border-radius: 2px;
@@ -126,6 +138,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     justify-content: center;
     align-items: center;
     color: black;
+    outline: none;
+  }
+
+  a {
+    color: black;
+    outline: none;
+    text-decoration: none;
   }
 
   .mainLogo {
